@@ -7,49 +7,102 @@
 <style>
   :root { color-scheme: light dark; }
   body { margin: 0; padding: 0; background: #FBF7EE; color: #1F1A2E; font: 17px/1.55 -apple-system, "SF Pro Rounded", system-ui, sans-serif; }
-  @media (prefers-color-scheme: dark) { body { background: #15112A; color: #F4F0FF; } a { color: #B9A7FF; } .muted { color: #B8B0CC !important; } }
+  @media (prefers-color-scheme: dark) { body { background: #15112A; color: #F4F0FF; } a { color: #B9A7FF; } .muted { color: #B8B0CC !important; } th, td { border-color: #3A3352 !important; } }
   main { max-width: 720px; margin: 0 auto; padding: 48px 24px 96px; }
-  h1 { font-size: 34px; margin: 0 0 4px; } h2 { font-size: 22px; margin: 36px 0 8px; }
+  h1 { font-size: 34px; margin: 0 0 4px; } h2 { font-size: 22px; margin: 36px 0 8px; } h3 { font-size: 18px; margin: 24px 0 6px; }
   .muted { color: #6E6880; font-size: 15px; }
   a { color: #7C5CE6; } ul { padding-left: 22px; }
   .card { background: rgba(124,92,230,.08); border-radius: 18px; padding: 16px 20px; margin: 20px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 4px; font-size: 15px; }
+  th, td { border: 1px solid #DDD6EA; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { font-weight: 600; }
+  .todo { background: #FFF3C4; color: #6B4E00; border-radius: 6px; padding: 1px 6px; font-weight: 600; }
+  @media (prefers-color-scheme: dark) { .todo { background: #5A4600; color: #FFE79A; } }
 </style>
 </head>
 <body>
 <main>
 <h1>Privacy Policy</h1>
-<p class="muted">Doompush · Effective 8 September 2026</p>
+<p class="muted">Doompush · Effective 18 September 2026 · <a href="privacy-fr.html">Français</a></p>
 
-<div class="card"><strong>The short version.</strong> Your camera feed never leaves your phone. We do not have accounts, we do not sell data, and the only things that leave your device are anonymous usage signals, subscription receipts handled by Apple and RevenueCat, and, only if you choose to watch a rewarded ad, the ad request itself.</div>
+<div class="card"><strong>The short version.</strong> Your camera feed never leaves your phone. There are no accounts, no logins and no profiles. We never sell or share your personal information. Three things can leave your device: anonymous usage statistics, subscription receipts handled by Apple and RevenueCat, and — only if you tap to watch a rewarded ad — that ad request. The first and last are switched off for anyone under 16.</div>
+
+<h2>Who is responsible</h2>
+<p>Doompush is published by Ilan Uzan, an independent developer in Quebec, Canada, who is the controller of the personal information described here and, under Quebec's Law 25, the person in charge of protecting it.</p>
+<p>Post: 5641 Clanranald, Montréal, Québec H3X 2S9, Canada<br>
+Email: <a href="mailto:ilan@kesefplus.app">ilan@kesefplus.app</a></p>
 
 <h2>What Doompush does on your device</h2>
 <ul>
-  <li><strong>Camera.</strong> Reps are counted with Apple's on-device Vision framework. Frames are analysed in memory and discarded. No photo or video is stored, uploaded or shared. Doompush does not work without the camera because reps could not be verified.</li>
-  <li><strong>Screen Time (Family Controls).</strong> With your permission, Doompush shields the apps you pick and meters your earned unlock windows. Apple's Screen Time API keeps app names and usage on the device; Doompush only ever sees opaque tokens and a "budget used up" signal from its own extension.</li>
-  <li><strong>Apple Health.</strong> If you allow it, camera-verified sessions are written to Health as strength workouts. Doompush does not read Health data.</li>
-  <li><strong>Notifications.</strong> Local reminders (creature hungry, streak at risk, stage warning, window closed) are scheduled on the device. You can turn each one off in You ▸ Notifications.</li>
-  <li><strong>Your progress</strong> (balance, streak, creature stage, settings) is stored on your device and in your iCloud device backup. Deleting the app deletes it.</li>
+  <li><strong>Camera.</strong> Reps are counted with Apple's on-device Vision framework. Frames are analysed in memory and discarded; only joint positions are used, and only while a session is running. No photo or video is stored, uploaded or shared, and the app contains no code that could save or send one. Doompush cannot count reps without the camera.</li>
+  <li><strong>Screen Time (Family Controls).</strong> With your permission, Doompush shields the apps you pick and meters your earned unlock windows. Apple's Screen Time API keeps app names and usage on your device: Doompush only ever receives opaque tokens it cannot read, and a "budget used up" signal from its own extension. It never learns which apps you chose or how long you spend in any of them.</li>
+  <li><strong>Apple Health — writing.</strong> If you allow it, each completed session is written to Health as a functional strength training workout, with a calorie figure estimated from your rep count. You can revoke this at any time in the Health app.</li>
+  <li><strong>Apple Health — reading (Premium only).</strong> If you have Premium and allow it, Doompush reads today's step count so steps can become earned minutes (1,000 steps = 1 minute, up to 15 minutes a day). The step count is read on your device and is never transmitted. If you decline, the app reads zero and everything else still works.</li>
+  <li><strong>Notifications.</strong> Reminders are scheduled locally on your device. You can turn each kind off in You ▸ Notifications.</li>
+  <li><strong>Your progress</strong> — balance, streak, session history, creature stage, settings — is stored on your device. If you have iCloud device backup switched on, it is included in that backup, like any other app's data. Doompush has no database of its own and does not sync your progress anywhere.</li>
 </ul>
 
 <h2>What leaves your device</h2>
+
+<h3>Usage statistics</h3>
+<p>For people aged 16 and over, Doompush sends anonymous product events to <a href="https://telemetrydeck.com/privacy/">TelemetryDeck</a>, so we can see which features are used and where people get stuck. Examples: app launched, onboarding step reached, session completed (with the rep count, whether it was camera-verified, and which exercise), unlock opened, paywall shown, purchase made, ad requested.</p>
+<p>These events carry no name, no email, no free text, no advertising identifier and nothing from your Screen Time selection. Each is tagged with a one-way hash of your device's vendor identifier — a value specific to this app on this device — so that repeat events count as one device rather than many. TelemetryDeck's software also attaches the device model, operating system version, app version, language, time zone and accessibility settings. Under European law that combination still counts as personal data, which is why it is described here in full.</p>
+<p>One Health-derived figure is included: when you claim step minutes, the number of minutes claimed (between 0 and 15) is sent. The step count itself never leaves your device.</p>
+
+<h3>Purchases</h3>
+<p>Subscriptions are processed by Apple. Receipts are validated by <a href="https://www.revenuecat.com/privacy">RevenueCat</a> so your Premium status can be restored on a new device. Doompush gives RevenueCat no email, no name and no advertising identifier: your subscription is held against an anonymous identifier it generates. We never see your payment details.</p>
+
+<h3>Rewarded ads (free plan, optional, 16 and over)</h3>
+<p>Ads never appear on their own. They appear only when you tap "Watch" on the bonus chest, at most twice a day, never for Premium subscribers, and never for anyone whose age range is under 16 or unknown. When you do, an ad is requested from <a href="https://policies.google.com/technologies/ads">Google AdMob</a>, which receives what an ad request needs: your device type, an approximate location derived from your internet address, and an advertising identifier where one is available.</p>
+<p>In the European Economic Area and the United Kingdom, Google's consent message appears before the first ad and asks what it may use your data for. Doompush requests no ad at all unless that step is answered, and where Google requires it, a "Ad privacy choices" row in You ▸ Settings reopens your choices at any time.</p>
+<p>Before the first ad only, iOS then asks whether Doompush may track you across other companies' apps and websites. If you say no, the advertising identifier is withheld and the ad is less relevant. Nothing else changes, and you still get your bonus minutes. Everything outside the bonus chest works the same whatever you answer.</p>
+
+<h2>Why we are allowed to use this information</h2>
+<p>For people in the European Economic Area and the United Kingdom, the legal bases are:</p>
+<table>
+  <tr><th>What</th><th>Why</th><th>Legal basis</th></tr>
+  <tr><td>Running the app on your device: blocking, rep counting, your progress</td><td>To provide the app you asked for</td><td>Performance of a contract</td></tr>
+  <tr><td>Subscriptions and restoring Premium</td><td>To sell and honour the subscription</td><td>Performance of a contract</td></tr>
+  <tr><td>Reading your step count (Premium)</td><td>To turn steps into earned minutes</td><td>Your explicit consent, given in the Health prompt and withdrawable in the Health app</td></tr>
+  <tr><td>Writing workouts to Health</td><td>So your effort counts in Health</td><td>Your explicit consent, given in the Health prompt and withdrawable in the Health app</td></tr>
+  <tr><td>Anonymous usage statistics (16 and over)</td><td>To understand which features work</td><td>Our legitimate interest in improving the app, weighed against how limited and indirect the data is</td></tr>
+  <tr><td>Personalised rewarded ads (16 and over)</td><td>To fund the free plan</td><td>Your consent, given in the tracking prompt and, in Europe and the UK, in the consent message shown before the first ad</td></tr>
+</table>
+
+<h2>Who else handles your information</h2>
 <ul>
-  <li><strong>Purchases.</strong> Subscriptions are processed by Apple. Receipts are validated by <a href="https://www.revenuecat.com/privacy">RevenueCat</a> so your Premium status can be restored. We never see your payment details.</li>
-  <li><strong>Anonymous analytics.</strong> We use <a href="https://telemetrydeck.com/privacy/">TelemetryDeck</a> to count events such as "session completed" or "paywall shown". Signals are anonymised before they leave the phone; no advertising identifier is used and the data cannot be linked to you.</li>
-  <li><strong>Rewarded ads (free plan, optional).</strong> If you tap "Watch" on the bonus chest, an ad from Google AdMob is requested. Only then does iOS ask whether the ad may use tracking; if you decline, you still get a non-personalised ad. Premium users never see this. See <a href="https://policies.google.com/technologies/ads">Google's advertising policies</a>.</li>
+  <li><strong>Apple</strong> — the App Store, subscriptions, iCloud backup, Health and Screen Time. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</li>
+  <li><strong>RevenueCat</strong> (United States) — subscription receipts. <a href="https://www.revenuecat.com/privacy">Privacy policy</a>.</li>
+  <li><strong>TelemetryDeck</strong> (Germany, hosted in the EU) — usage statistics. <a href="https://telemetrydeck.com/privacy/">Privacy policy</a>.</li>
+  <li><strong>Google</strong> (United States) — AdMob rewarded ads. <a href="https://policies.google.com/technologies/ads">Advertising policies</a>.</li>
+</ul>
+<p>Doompush has no servers of its own. Because we are in Canada and some of these companies are in the United States, the information described above may be handled outside your country. Transfers out of the European Economic Area and the United Kingdom rely on the European Commission's standard contractual clauses, or on an adequacy decision where one applies — Canada holds a partial adequacy decision covering commercial organisations.</p>
+
+<h2>How long it is kept</h2>
+<ul>
+  <li><strong>On your device:</strong> until you delete it in the app or delete the app. Session history keeps the most recent 300 sessions.</li>
+  <li><strong>Usage statistics:</strong> held by TelemetryDeck in aggregate. Individual events cannot be traced back to a person, by us or by them.</li>
+  <li><strong>Subscription records:</strong> kept by Apple and RevenueCat while the subscription exists, and afterwards for as long as their own policies and tax rules require.</li>
+  <li><strong>Ad requests:</strong> kept by Google under its own policies.</li>
 </ul>
 
-<h2>Children</h2>
-<p>Doompush is not directed at children under 13 and does not knowingly collect personal information from them.</p>
+<h2>Your rights</h2>
+<p>Depending on where you live, you have the right to ask for a copy of your personal information, to correct it, to have it deleted, to restrict or object to how it is used, to receive it in a portable format, and to withdraw consent you gave earlier. Quebec residents have these rights under Law 25, people in Europe and the UK under the GDPR, other Canadians under PIPEDA, and Californians under the CCPA.</p>
+<p>The practical answer for most of it: nearly everything Doompush knows is on your phone, under your control. Deleting the app erases it. Revoking camera, Health, Screen Time or notification access in iOS Settings stops that feature at once. Workouts already written to Health are deleted in the Health app. Usage statistics cannot be tied to you individually, which is also why they cannot be singled out and deleted on request.</p>
+<p>To exercise a right, write to <a href="mailto:ilan@kesefplus.app">ilan@kesefplus.app</a>. We answer within 30 days. We do not sell or share your personal information, and nothing in Doompush makes an automated decision that has an effect on you.</p>
 
-<h2>Your choices</h2>
-<ul>
-  <li>Revoke camera, Screen Time, Health or notification access at any time in iOS Settings.</li>
-  <li>Manage or cancel the subscription in Settings ▸ Apple Account ▸ Subscriptions.</li>
-  <li>Delete the app to erase all locally stored progress.</li>
-</ul>
+<h2>Complaints</h2>
+<p>If you think we have handled your information badly, please write to us first. You can also complain to a regulator: the <a href="https://www.cai.gouv.qc.ca/">Commission d'accès à l'information du Québec</a>, the <a href="https://www.priv.gc.ca/">Office of the Privacy Commissioner of Canada</a>, your national data protection authority in the European Economic Area, or the <a href="https://ico.org.uk/">Information Commissioner's Office</a> in the United Kingdom.</p>
 
-<h2>Changes and contact</h2>
-<p>We will update this page when the policy changes. Questions: <a href="mailto:support@doompush.app">support@doompush.app</a>.</p>
+<h2>Age</h2>
+<p>Doompush's content is rated 9+ on the App Store, and the exercise, blocking and creature work the same at any age. What changes with age is what leaves your device.</p>
+<p>The first time the Home screen appears after setup, Doompush asks iOS for your age range using Apple's Declared Age Range feature; you can answer again at any time from You ▸ About ▸ Age range. You choose a bracket; your birth date is never shared with us. For children in a Family Sharing group, the parent or guardian decides whether the age range is shared at all. If the range is 16 or over, ads and statistics work as described above. If it is under 16, was declined, or is unavailable, Doompush requests no ads, shows no tracking or consent prompt, and sends no statistics. Nothing is collected from a child, and nothing a parent has set in Screen Time or Family Sharing is overridden by the app.</p>
+<p>16 is the highest age of digital consent in the European Union and above Quebec's threshold of 14, so one rule covers everyone. Purchases from a child's Apple Account go through Apple, including Ask to Buy where the family uses it. If you believe we hold information about a child, write to us and we will delete what we can.</p>
+
+<h2>Changes</h2>
+<p>When this policy changes, the effective date above changes with it, and the new text replaces the old. Anything material will also be mentioned in the app's release notes.</p>
+
+<p class="muted">Questions: <a href="mailto:ilan@kesefplus.app">ilan@kesefplus.app</a> · <a href="terms.html">Terms of Use</a></p>
 </main>
 </body>
 </html>
